@@ -1,7 +1,12 @@
 const express = require('express');
 const app = express();
+const motivations = require('motivations');
+const pickOne = require('pick-one');
+
 app.get('/', function(request, response) {
-	response.send('hey!');
+	var motivation = pickOne(motivations);
+	//response.send(motivations[0]);
+	response.send(motivation);
 });
 
 module.exports = app;
